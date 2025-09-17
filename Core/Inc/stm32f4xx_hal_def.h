@@ -17,7 +17,14 @@ typedef enum
   HAL_TIMEOUT  = 0x03U
 } HAL_StatusTypeDef;
 
-/* RCC structures - определения которые используются в stm32f4xx_hal_rcc.h */
+/* HAL Lock definitions - ДОБАВИЛИ ЭТО */
+typedef enum 
+{
+  HAL_UNLOCKED = 0x00U,
+  HAL_LOCKED   = 0x01U  
+} HAL_LockTypeDef;
+
+/* RCC structures */
 typedef struct
 {
   uint32_t OscillatorType;
