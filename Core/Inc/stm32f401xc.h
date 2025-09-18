@@ -29,6 +29,45 @@ typedef enum IRQn
 
 #include "core_cm4.h"
 
+/* Peripheral base addresses */
+#define FLASH_BASE            0x08000000UL
+#define SRAM_BASE             0x20000000UL
+#define PERIPH_BASE           0x40000000UL
+
+#define APB1PERIPH_BASE       PERIPH_BASE
+#define APB2PERIPH_BASE       (PERIPH_BASE + 0x00010000UL)
+#define AHB1PERIPH_BASE       (PERIPH_BASE + 0x00020000UL)
+#define AHB2PERIPH_BASE       (PERIPH_BASE + 0x10000000UL)
+
+/* GPIO */
+#define GPIOA_BASE            (AHB1PERIPH_BASE + 0x0000UL)
+#define GPIOB_BASE            (AHB1PERIPH_BASE + 0x0400UL)
+#define GPIOC_BASE            (AHB1PERIPH_BASE + 0x0800UL)
+#define GPIOH_BASE            (AHB1PERIPH_BASE + 0x1C00UL)
+
+#define GPIOA                 ((void*)GPIOA_BASE)
+#define GPIOB                 ((void*)GPIOB_BASE)
+#define GPIOC                 ((void*)GPIOC_BASE)
+#define GPIOH                 ((void*)GPIOH_BASE)
+
+/* SPI */
+#define SPI1_BASE             (APB2PERIPH_BASE + 0x3000UL)
+#define SPI2_BASE             (APB1PERIPH_BASE + 0x3800UL)
+#define SPI3_BASE             (APB1PERIPH_BASE + 0x3C00UL)
+
+#define SPI1                  ((void*)SPI1_BASE)
+#define SPI2                  ((void*)SPI2_BASE)
+#define SPI3                  ((void*)SPI3_BASE)
+
+/* ADC */
+#define ADC1_BASE             (APB2PERIPH_BASE + 0x2000UL)
+#define ADC1                  ((void*)ADC1_BASE)
+
+/* Дополнительные макросы для MSP */
+#define __HAL_RCC_SYSCFG_CLK_ENABLE()  do { } while(0)
+#define __HAL_RCC_SPI1_CLK_ENABLE()    do { } while(0)
+#define __HAL_RCC_ADC1_CLK_ENABLE()    do { } while(0)
+
 #ifdef __cplusplus
 }
 #endif
