@@ -71,5 +71,5 @@ typedef enum IRQn
 #ifdef __cplusplus
 }
 #endif
-
+#ifdef __cplusplus
 #endif /* __STM32F401xC_H */
