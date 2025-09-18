@@ -13,7 +13,8 @@
 
 typedef struct
 {
-  volatile uint32_t CPACR;
+  volatile uint32_t CPACR;         /*!< Offset: 0x088 (R/W)  Coprocessor Access Control Register      */
+  volatile uint32_t VTOR;          /*!< Offset: 0x008 (R/W)  Vector Table Offset Register             */
 } SCB_Type;
 
 #define SCB_BASE            (0xE000ED00UL)
