@@ -23,14 +23,4 @@ void HAL_GPIO_Init(void *GPIOx, GPIO_InitTypeDef *GPIO_Init)
   (void)GPIO_Init;
 }
 
-void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
-{
-  /* Заглушка SPI MSP */
-  (void)hspi;
-}
-
-void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
-{
-  /* Заглушка ADC MSP */
-  (void)hadc;
-}
+/* Убрали HAL_SPI_MspInit и HAL_ADC_MspInit - они уже есть в stm32f4xx_hal_msp.c */
