@@ -63,6 +63,30 @@ typedef enum IRQn
 #define ADC1_BASE             (APB2PERIPH_BASE + 0x2000UL)
 #define ADC1                  ((void*)ADC1_BASE)
 
+/* RCC регистры */
+typedef struct
+{
+  volatile uint32_t CR;            /*!< RCC clock control register,                                  Address offset: 0x00 */
+  volatile uint32_t PLLCFGR;       /*!< RCC PLL configuration register,                             Address offset: 0x04 */
+  volatile uint32_t CFGR;          /*!< RCC clock configuration register,                           Address offset: 0x08 */
+  volatile uint32_t CIR;           /*!< RCC clock interrupt register,                               Address offset: 0x0C */
+} RCC_TypeDef;
+
+#define RCC_BASE              (AHB1PERIPH_BASE + 0x3800UL)
+#define RCC                   ((RCC_TypeDef *) RCC_BASE)
+
+/* RCC constants */
+#define RCC_CFGR_SWS                         0x0000000CU
+#define RCC_PLLCFGR_PLLSRC                   0x00400000U
+#define RCC_PLLCFGR_PLLM                     0x0000003FU
+#define RCC_PLLCFGR_PLLN                     0x00007FC0U
+#define RCC_PLLCFGR_PLLP                     0x00030000U
+#define RCC_CFGR_HPRE                        0x000000F0U
+#define RCC_CFGR_PPRE1                       0x00001C00U
+
+/* SCB constants */
+#define VECT_TAB_OFFSET  0x00000000U /*!< Vector Table base offset field. This value must be a multiple of 0x200. */
+
 /* Дополнительные макросы для MSP */
 #define __HAL_RCC_SYSCFG_CLK_ENABLE()  do { } while(0)
 #define __HAL_RCC_SPI1_CLK_ENABLE()    do { } while(0)
@@ -71,5 +95,5 @@ typedef enum IRQn
 #ifdef __cplusplus
 }
 #endif
-#ifdef __cplusplus
+
 #endif /* __STM32F401xC_H */
